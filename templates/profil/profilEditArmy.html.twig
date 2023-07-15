@@ -1,0 +1,168 @@
+{% extends '/home/index.html.twig' %}
+{% block title %}Hello ProfilEditController!{% endblock %}
+
+    {% block body %}
+        {{ form_start(form) }}
+
+        <div class="container">
+            <div class="main-body">
+                <div class="row gutters-sm">
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex flex-column align-items-center text-center">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                                    <div class="mt-3">
+                                        <h4>{{ app.user.username }}</h4>
+                                        <p class="text-secondary mb-1">{{ app.user.email }}</p>
+                                        <p class="text-muted font-size-sm">{{ app.user.ingameId }}</p>
+                                        <div class="row">
+                                            <div class="col-sm">
+                                                <h6 class="mb">Country</h6>
+                                            </div>
+                                            <div class="col-sm text-secondary">
+                                                {{app.user.country }}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm">
+                                                <h6 class="mb">TimeZone</h6>
+                                            </div>
+                                            <div class="col-sm text-secondary">
+                                                {{app.user.timezone }}
+                                            </div>
+                                        </div><div class="row">
+                                            <div class="col-sm">
+                                                <h6 class="mb">PrimeTime</h6>
+                                            </div>
+                                            <div class="col-sm text-secondary">
+                                                {{app.user.primeTime }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Alliance</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        {{ app.user.ally }}
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Grade</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        {{app.user.grade }}
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Power</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        {{ app.user.power }}
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Merite</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        {{app.user.merit }}
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card mt-1">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="material-icons text-info mr-2">Army</i></h5>
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>Tier 1</th>
+                            <th>Tier 2</th>
+                            <th>Tier 3</th>
+                            <th>Tier 4</th>
+                            <th>Tier 5</th>
+                            <th>Total</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Infantry</td>
+                            <td >{{ form_row(form.t1Infantry,{'label':false}) }}</td>
+                            <td >{{ form_row(form.t2Infantry,{'label':false}) }}</td>
+                            <td >{{ form_row(form.t3Infantry,{'label':false}) }}</td>
+                            <td >{{ form_row(form.t4Infantry,{'label':false}) }}</td>
+                            <td >{{ form_row(form.t5Infantry,{'label':false}) }}</td>
+                            <td>t</td>
+                        </tr>
+                        <tr>
+                            <td>Marksmen</td>
+                            <td>{{ form_row(form.t1Marksmen,{'label':false}) }}</td>
+                            <td>{{ form_row(form.t2Marksmen,{'label':false}) }}</td>
+                            <td>{{ form_row(form.t3Marksmen,{'label':false}) }}</td>
+                            <td>{{ form_row(form.t4Marksmen,{'label':false}) }}</td>
+                            <td>{{ form_row(form.t5Marksmen,{'label':false}) }}</td>
+                            <td>t</td>
+                        </tr>
+                        <tr>
+                            <td>Cavalry</td>
+                            <td>{{ form_row(form.t1Cavalry,{'label':false}) }}</td>
+                            <td>{{ form_row(form.t2Cavalry,{'label':false}) }}</td>
+                            <td>{{ form_row(form.t3Cavalry,{'label':false}) }}</td>
+                            <td>{{ form_row(form.t4Cavalry,{'label':false}) }}</td>
+                            <td>{{ form_row(form.t5Cavalry,{'label':false}) }}</td>
+                            <td>t</td>
+                        </tr>
+                        <tr>
+                            <td>Mages</td>
+                            <td>{{ form_row(form.t1Mage,{'label':false}) }}</td>
+                            <td>{{ form_row(form.t2Mage,{'label':false}) }}</td>
+                            <td>{{ form_row(form.t3Mage,{'label':false}) }}</td>
+                            <td>{{ form_row(form.t4Mage,{'label':false}) }}</td>
+                            <td>{{ form_row(form.t5Mage,{'label':false}) }}</td>
+                            <td>t</td>
+                        </tr>
+                        <tr>
+                            <td>Flying</td>
+                            <td>{{ form_row(form.t1Fly,{'label':false}) }}</td>
+                            <td>{{ form_row(form.t2Fly,{'label':false}) }}</td>
+                            <td>{{ form_row(form.t3Fly,{'label':false}) }}</td>
+                            <td>{{ form_row(form.t4Fly,{'label':false}) }}</td>
+                            <td>{{ form_row(form.t5Fly,{'label':false}) }}</td>
+                            <td>t</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                    <div class="col-md-1 offset-md-11">
+                        {{ form_row(form.editer) }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+{%endblock %}

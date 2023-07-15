@@ -1,0 +1,122 @@
+{% extends '/home/index.html.twig' %}
+{% block title %}Hello ProfilEditController!{% endblock %}
+
+    {% block body %}
+        <div class="container">
+            <div class="main-body">
+                <div class="row gutters-sm">
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex flex-column align-items-center text-center">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                                    <div class="mt-3">
+                                        <h4>{{ app.user.username }}</h4>
+                                        <p class="text-secondary mb-1">{{ app.user.email }}</p>
+                                        <p class="text-muted font-size-sm">{{ app.user.ingameId }}</p>
+                                        <div class="row">
+                                            <div class="col-sm">
+                                                <h6 class="mb">Country</h6>
+                                            </div>
+                                            <div class="col-sm text-secondary">
+                                                {{app.user.country }}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm">
+                                                <h6 class="mb">TimeZone</h6>
+                                            </div>
+                                            <div class="col-sm text-secondary">
+                                                {{app.user.timezone }}
+                                            </div>
+                                        </div><div class="row">
+                                            <div class="col-sm">
+                                                <h6 class="mb">PrimeTime</h6>
+                                            </div>
+                                            <div class="col-sm text-secondary">
+                                                {{app.user.primeTime }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Alliance</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        {{ app.user.ally }}
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Grade</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        {{app.user.grade }}
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Power</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        {{ app.user.power }}
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Merite</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        {{app.user.merit }}
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="card mt-1">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="material-icons text-info mr-2">Artefacts</i></h5>
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Lvl</th>
+                            <th>Stars</th>
+                            <th>skill1</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for ligne in 1..2 %}
+                            <tr>
+                                <td>Ligne {{ ligne }}, Colonne 1</td>
+                                <td>Ligne {{ ligne }}, Colonne 2</td>
+                                <td>Ligne {{ ligne }}, Colonne 3</td>
+                                <td>Ligne {{ ligne }}, Colonne 4</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <div class="col-md-1 offset-md-11">
+                        <a class="btn btn-info " href="{{ path('app_profil_editartefact') }}">Edit</a>                     </div>
+                </div>
+            </div>
+
+
+
+
+
+    {%endblock %}

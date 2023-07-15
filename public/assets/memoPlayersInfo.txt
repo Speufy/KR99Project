@@ -1,0 +1,19 @@
+Class Player
+id
+ingameid
+power
+rank
+pseudo
+alliance
+Merite
+
+Class Faction
+
+Class Role
+
+Class Army
+
+Class Heroe
+
+Class Artefact
+

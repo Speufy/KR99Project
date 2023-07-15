@@ -1,0 +1,96 @@
+{% extends '/home/index.html.twig' %}
+
+{% block title %}Hello ProfilEditController!{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+        <div class="container">
+            <div class="main-body">
+                <div class="row gutters-sm">
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex flex-column align-items-center text-center">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                                    <div class="mt-3">
+                                        {{ form_row(form.username,{'label':false}) }}
+                                        {{ form_row(form.email,{'label':false}) }}
+                                        {{ form_row(form.ingame_id,{'label':false}) }}
+
+                                        <div class="row">
+                                            <div class="col-sm">
+                                                <h6 class="mb">Country</h6>
+                                            </div>
+                                            <div class="col-sm text-secondary">
+                                                {{ form_row(form.country,{'label':false}) }}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm">
+                                                <h6 class="mb">TimeZone</h6>
+                                            </div>
+                                            <div class="col-sm text-secondary">
+                                                {{ form_row(form.timezone,{'label':false}) }}
+                                            </div>
+                                        </div><div class="row">
+                                            <div class="col-sm">
+                                                <h6 class="mb">PrimeTime</h6>
+                                            </div>
+                                            <div class="col-sm text-secondary">
+{#                                                {{ form_row(form.prime_time,{'label':false}) }}#}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Alliance</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        {{ form_row(form.ally,{'label':false}) }}
+
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Grade</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        {{ form_row(form.grade,{'label':false}) }}
+
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Power</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        {{ form_row(form.power,{'label':false}) }}
+
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Merite</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        {{ form_row(form.merit,{'label':false}) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{ form_row(form.editer) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
