@@ -79,16 +79,62 @@ class ProfilController extends AbstractController
         $user = $this->getUser();
         $userId = $user->getId();
         $army = $user->getArmy();
+
         $armyId = $army->getId();
         $entityManager = $doctrine->getManager();
         $armyRepo = $entityManager->getRepository(Army::class);
         $army = $armyRepo->findBy(
             ['id'=>$armyId]
         );
+        $totalArmy = $this->getTotalArmy($army);
         return $this->render('profil/profil.html.twig', [
             'controller_name' => 'ProfilController',
-            'army'=>$army
+            'army'=>$army,
+            'total'=> $totalArmy,
         ]);
+    }
+
+    public function getTotalArmy($army){
+
+        $t1Inf = $army[0]->getT1Infantry();
+        $t2Inf = $army[0]->getT2Infantry();
+        $t3Inf = $army[0]->getT3Infantry();
+        $t4Inf = $army[0]->getT4Infantry();
+        $t5Inf = $army[0]->getT5Infantry();
+        $totalInf = $t1Inf + $t2Inf + $t3Inf + $t4Inf + $t5Inf;
+
+        $t1Cav = $army[0]->getT1Cavalry();
+        $t2Cav = $army[0]->getT2Cavalry();
+        $t3Cav = $army[0]->getT3Cavalry();
+        $t4Cav = $army[0]->getT4Cavalry();
+        $t5Cav = $army[0]->getT5Cavalry();
+        $totalCav = $t1Cav + $t2Cav + $t3Cav + $t4Cav + $t5Cav;
+
+        $t1Mage = $army[0]->getT1Mage();
+        $t2Mage = $army[0]->getT2Mage();
+        $t3Mage = $army[0]->getT3Mage();
+        $t4Mage = $army[0]->getT4Mage();
+        $t5Mage = $army[0]->getT5Mage();
+        $totalMage = $t1Mage + $t2Mage + $t3Mage + $t4Mage + $t5Mage;
+
+
+        $t1Fly = $army[0]->getT1Fly();
+        $t2Fly = $army[0]->getT2Fly();
+        $t3Fly = $army[0]->getT3Fly();
+        $t4Fly = $army[0]->getT4Fly();
+        $t5Fly = $army[0]->getT5Fly();
+        $totalFly = $t1Fly + $t2Fly + $t3Fly + $t4Fly + $t5Fly;
+
+
+        $t1Marksmen = $army[0]->getT1Marksmen();
+        $t2Marksmen = $army[0]->getT2Marksmen();
+        $t3Marksmen = $army[0]->getT3Marksmen();
+        $t4Marksmen = $army[0]->getT4Marksmen();
+        $t5Marksmen = $army[0]->getT5Marksmen();
+        $totalMarksmen = $t1Marksmen + $t2Marksmen + $t3Marksmen + $t4Marksmen + $t5Marksmen;
+
+        $totalTroops = ['infantry'=>$totalInf,'cavalry'=>$totalCav,'mage'=>$totalMage,'fly'=>$totalFly,'marksmen'=>$totalMarksmen];
+        return $totalTroops;
     }
 
 

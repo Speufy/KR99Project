@@ -30,14 +30,15 @@
                                         <div class="col-sm text-secondary">
                                             {{app.user.timezone }}
                                         </div>
-                                    </div><div class="row">
-                                        <div class="col-sm">
-                                            <h6 class="mb">PrimeTime</h6>
-                                        </div>
-                                        <div class="col-sm text-secondary">
-                                            {{app.user.primeTime }}
-                                        </div>
                                     </div>
+{#                                    <div class="row">#}
+{#                                        <div class="col-sm">#}
+{#                                            <h6 class="mb">PrimeTime</h6>#}
+{#                                        </div>#}
+{#                                        <div class="col-sm text-secondary">#}
+{#                                            {{app.user.primeTime }}#}
+{#                                        </div>#}
+{#                                    </div>#}
                                 </div>
                             </div>
                         </div>
@@ -115,7 +116,7 @@
                             <td>{{army[0].T3Infantry}}</td>
                             <td>{{army[0].T4Infantry}}</td>
                             <td>{{army[0].T5Infantry}}</td>
-                            <td>t</td>
+                            <td>{{ total.infantry }}</td>
                         </tr>
                         <tr>
                             <td>Marksmen</td>
@@ -124,7 +125,7 @@
                             <td>{{army[0].T3Marksmen}}</td>
                             <td>{{army[0].T4Marksmen}}</td>
                             <td>{{army[0].T5Marksmen}}</td>
-                            <td>t</td>
+                            <td>{{ total.marksmen }}</td>
                         </tr>
                         <tr>
                             <td>Cavalry</td>
@@ -133,7 +134,7 @@
                             <td>{{army[0].T3Cavalry}}</td>
                             <td>{{army[0].T4Cavalry}}</td>
                             <td>{{army[0].T5Cavalry}}</td>
-                            <td>t</td>
+                            <td>{{ total.cavalry }}</td>
                         </tr>
                         <tr>
                             <td>Mages</td>
@@ -142,7 +143,7 @@
                             <td>{{army[0].T3Mage}}</td>
                             <td>{{army[0].T4Mage}}</td>
                             <td>{{army[0].T5Mage}}</td>
-                            <td>t</td>
+                            <td>{{ total.mage }}</td>
                         </tr>
                         <tr>
                             <td>Flying</td>
@@ -150,8 +151,8 @@
                             <td>{{army[0].T2Fly}}</td>
                             <td>{{army[0].T3Fly}}</td>
                             <td>{{army[0].T4Fly}}</td>
-                            <td>{{army[0].T4Fly}}</td>
-                            <td>t</td>
+                            <td>{{army[0].T5Fly}}</td>
+                            <td>{{ total.fly }}</td>
                         </tr>
 
                         </tbody>
@@ -161,68 +162,68 @@
                     </div>
                 </div>
             </div>
-            <div class="card mt-1">
-                <div class="card-body">
-                    <h5 class="card-title"><i class="material-icons text-info mr-2">Heroes</i></h5>
-                    <table class="table table-bordered">
-                                <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Lvl</th>
-                                    <th>Stars</th>
-                                    <th>skill1</th>
-                                    <th>skill2</th>
-                                    <th>skill3</th>
-                                    <th>skill4</th>
-                                    <th>awake</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {% for ligne in 1..2 %}
-                                    <tr>
-                                        <td>Ligne {{ ligne }}, Colonne 1</td>
-                                        <td>Ligne {{ ligne }}, Colonne 2</td>
-                                        <td>Ligne {{ ligne }}, Colonne 3</td>
-                                        <td>Ligne {{ ligne }}, Colonne 4</td>
-                                        <td>Ligne {{ ligne }}, Colonne 5</td>
-                                        <td>Ligne {{ ligne }}, Colonne 6</td>
-                                        <td>Ligne {{ ligne }}, Colonne 7</td>
-                                        <td>Ligne {{ ligne }}, Colonne 8</td>
-                                    </tr>
-                                {% endfor %}
-                                </tbody>
-                            </table>
-                    <div class="col-md-1 offset-md-11">
-                        <a class="btn btn-info " href="{{ path('app_profil_editheroe') }}">Edit</a>                    </div>
-                </div>
-            </div>
-            <div class="card mt-1">
-                <div class="card-body">
-                    <h5 class="card-title"><i class="material-icons text-info mr-2">Artefacts</i></h5>
-                    <table class="table table-bordered">
-                                <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Lvl</th>
-                                    <th>Stars</th>
-                                    <th>skill1</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {% for ligne in 1..2 %}
-                                    <tr>
-                                        <td>Ligne {{ ligne }}, Colonne 1</td>
-                                        <td>Ligne {{ ligne }}, Colonne 2</td>
-                                        <td>Ligne {{ ligne }}, Colonne 3</td>
-                                        <td>Ligne {{ ligne }}, Colonne 4</td>
-                                    </tr>
-                                {% endfor %}
-                                </tbody>
-                            </table>
-                    <div class="col-md-1 offset-md-11">
-                        <a class="btn btn-info " href="{{ path('app_profil_editartefact') }}">Edit</a>                    </div>
-                    </div>
-                </div>
+{#            <div class="card mt-1">#}
+{#                <div class="card-body">#}
+{#                    <h5 class="card-title"><i class="material-icons text-info mr-2">Heroes</i></h5>#}
+{#                    <table class="table table-bordered">#}
+{#                                <thead>#}
+{#                                <tr>#}
+{#                                    <th>Name</th>#}
+{#                                    <th>Lvl</th>#}
+{#                                    <th>Stars</th>#}
+{#                                    <th>skill1</th>#}
+{#                                    <th>skill2</th>#}
+{#                                    <th>skill3</th>#}
+{#                                    <th>skill4</th>#}
+{#                                    <th>awake</th>#}
+{#                                </tr>#}
+{#                                </thead>#}
+{#                                <tbody>#}
+{#                                {% for ligne in 1..2 %}#}
+{#                                    <tr>#}
+{#                                        <td>Ligne {{ ligne }}, Colonne 1</td>#}
+{#                                        <td>Ligne {{ ligne }}, Colonne 2</td>#}
+{#                                        <td>Ligne {{ ligne }}, Colonne 3</td>#}
+{#                                        <td>Ligne {{ ligne }}, Colonne 4</td>#}
+{#                                        <td>Ligne {{ ligne }}, Colonne 5</td>#}
+{#                                        <td>Ligne {{ ligne }}, Colonne 6</td>#}
+{#                                        <td>Ligne {{ ligne }}, Colonne 7</td>#}
+{#                                        <td>Ligne {{ ligne }}, Colonne 8</td>#}
+{#                                    </tr>#}
+{#                                {% endfor %}#}
+{#                                </tbody>#}
+{#                            </table>#}
+{#                    <div class="col-md-1 offset-md-11">#}
+{#                        <a class="btn btn-info " href="{{ path('app_profil_editheroe') }}">Edit</a>                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="card mt-1">#}
+{#                <div class="card-body">#}
+{#                    <h5 class="card-title"><i class="material-icons text-info mr-2">Artefacts</i></h5>#}
+{#                    <table class="table table-bordered">#}
+{#                                <thead>#}
+{#                                <tr>#}
+{#                                    <th>Name</th>#}
+{#                                    <th>Lvl</th>#}
+{#                                    <th>Stars</th>#}
+{#                                    <th>skill1</th>#}
+{#                                </tr>#}
+{#                                </thead>#}
+{#                                <tbody>#}
+{#                                {% for ligne in 1..2 %}#}
+{#                                    <tr>#}
+{#                                        <td>Ligne {{ ligne }}, Colonne 1</td>#}
+{#                                        <td>Ligne {{ ligne }}, Colonne 2</td>#}
+{#                                        <td>Ligne {{ ligne }}, Colonne 3</td>#}
+{#                                        <td>Ligne {{ ligne }}, Colonne 4</td>#}
+{#                                    </tr>#}
+{#                                {% endfor %}#}
+{#                                </tbody>#}
+{#                            </table>#}
+{#                    <div class="col-md-1 offset-md-11">#}
+{#                        <a class="btn btn-info " href="{{ path('app_profil_editartefact') }}">Edit</a>                    </div>#}
+{#                    </div>#}
+{#                </div>#}
 
     </div>
 {% endblock %}
