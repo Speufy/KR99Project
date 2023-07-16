@@ -3,18 +3,69 @@
 {% block title %}Hello DashboardController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div>
+        <H1>We've got {{ T5Players }} T5 players</H1>
+    </div>
+    <div>
+        <canvas id="army"></canvas>
+    </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'G:/Project/KR99Project/KR99_WebApp/src/Controller/DashboardController.php'|file_link(0) }}">src/Controller/DashboardController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'G:/Project/KR99Project/KR99_WebApp/templates/dashboard/announcement.html.twig'|file_link(0) }}">templates/dashboard/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+
+        const graph = document.getElementById('army');
+        const data =  {
+            labels: ['Infantry', 'Cavalry', 'Mage', 'Fly', 'Marskmen'],
+            datasets: [
+                {
+                    label: 'T1 : '+{{ detailedArmy['TotalT1'] }},
+                    data: [{{ detailedArmy['T1Inf'] }}, {{ detailedArmy['T1Cav'] }}, {{ detailedArmy['T1Mage'] }}, {{ detailedArmy['T1Fly'] }},{{ detailedArmy['T1Mm'] }}],
+                    borderWidth: 1,
+                },
+                {
+                    label: 'T2: '+{{ detailedArmy['TotalT2'] }},
+                    data: [{{ detailedArmy['T2Inf'] }}, {{ detailedArmy['T2Cav'] }}, {{ detailedArmy['T2Mage'] }}, {{ detailedArmy['T2Fly'] }},{{ detailedArmy['T2Mm'] }}],
+                    borderWidth: 2,
+                },
+                {
+                    label: 'T3: '+{{ detailedArmy['TotalT3'] }},
+                    data: [{{ detailedArmy['T3Inf'] }}, {{ detailedArmy['T3Cav'] }}, {{ detailedArmy['T3Mage'] }}, {{ detailedArmy['T3Fly'] }},{{ detailedArmy['T3Mm'] }}],                    borderWidth: 3,
+                },
+                {
+                    label: 'T4: '+{{ detailedArmy['TotalT4'] }},
+                    data: [{{ detailedArmy['T4Inf'] }}, {{ detailedArmy['T4Cav'] }}, {{ detailedArmy['T4Mage'] }}, {{ detailedArmy['T4Fly'] }},{{ detailedArmy['T4Mm'] }}],                    borderWidth: 4,
+                },
+                {
+                    label: 'T5: '+{{ detailedArmy['TotalT5'] }},
+                    data: [{{ detailedArmy['T5Inf'] }}, {{ detailedArmy['T5Cav'] }}, {{ detailedArmy['T5Mage'] }}, {{ detailedArmy['T5Fly'] }},{{ detailedArmy['T5Mm'] }}],                    borderWidth: 5,
+                }]};
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Total Army'
+                    },
+                },
+                responsive: true,
+                interaction: {
+                    intersect: false,
+                },
+                scales: {
+                    x: {
+                        stacked: true,
+                    },
+                    y: {
+                        stacked: true
+                    }
+                }
+            }
+        };
+
+        new Chart(graph,config);
+    </script>
 {% endblock %}

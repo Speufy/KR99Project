@@ -16,6 +16,7 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class ArmyRepository extends ServiceEntityRepository
 {
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Army::class);
@@ -37,6 +38,24 @@ class ArmyRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+    public function countT5Players()
+    {
+
+
+        $qb = $this->getEntityManager()->createQueryBuilder();
+
+        $qb->select('COUNT(a.id)')
+            ->from('App\Entity\Army', 'a')
+            ->where($qb->expr()->orX(
+                $qb->expr()->gte('a.T5Infantry', 0),
+                $qb->expr()->gte('a.T5Cavalry', 0),
+                $qb->expr()->gte('a.T5Fly', 0),
+                $qb->expr()->gte('a.T5Mage', 0),
+                $qb->expr()->gte('a.T5Marksmen', 0)
+            ));
+
+        return $qb->getQuery()->getSingleScalarResult();
     }
 
 //    /**
