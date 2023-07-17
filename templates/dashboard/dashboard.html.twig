@@ -14,32 +14,44 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
-
         const graph = document.getElementById('army');
         const data =  {
             labels: ['Infantry', 'Cavalry', 'Mage', 'Fly', 'Marskmen'],
             datasets: [
                 {
-                    label: 'T1 : '+{{ detailedArmy['TotalT1'] }},
+                    label: 'T1 : ' +'{{ detailedArmy['TotalT1']|number_format()}}',
                     data: [{{ detailedArmy['T1Inf'] }}, {{ detailedArmy['T1Cav'] }}, {{ detailedArmy['T1Mage'] }}, {{ detailedArmy['T1Fly'] }},{{ detailedArmy['T1Mm'] }}],
                     borderWidth: 1,
+                    backgroundColor: '#999999',
                 },
                 {
-                    label: 'T2: '+{{ detailedArmy['TotalT2'] }},
+                    label: 'T2: '+'{{ detailedArmy['TotalT2']|number_format() }}',
                     data: [{{ detailedArmy['T2Inf'] }}, {{ detailedArmy['T2Cav'] }}, {{ detailedArmy['T2Mage'] }}, {{ detailedArmy['T2Fly'] }},{{ detailedArmy['T2Mm'] }}],
-                    borderWidth: 2,
+                    borderWidth: 1,
+                    backgroundColor: '#8FCE00',
+
                 },
                 {
-                    label: 'T3: '+{{ detailedArmy['TotalT3'] }},
-                    data: [{{ detailedArmy['T3Inf'] }}, {{ detailedArmy['T3Cav'] }}, {{ detailedArmy['T3Mage'] }}, {{ detailedArmy['T3Fly'] }},{{ detailedArmy['T3Mm'] }}],                    borderWidth: 3,
+                    label: 'T3: '+'{{ detailedArmy['TotalT3']|number_format() }}',
+                    data: [{{ detailedArmy['T3Inf'] }}, {{ detailedArmy['T3Cav'] }}, {{ detailedArmy['T3Mage'] }}, {{ detailedArmy['T3Fly'] }},{{ detailedArmy['T3Mm'] }}],
+                    borderWidth: 1,
+                    backgroundColor: '#2986CC',
+
                 },
                 {
-                    label: 'T4: '+{{ detailedArmy['TotalT4'] }},
-                    data: [{{ detailedArmy['T4Inf'] }}, {{ detailedArmy['T4Cav'] }}, {{ detailedArmy['T4Mage'] }}, {{ detailedArmy['T4Fly'] }},{{ detailedArmy['T4Mm'] }}],                    borderWidth: 4,
+                    label: 'T4: '+'{{ detailedArmy['TotalT4']|number_format() }}',
+                    data: [{{ detailedArmy['T4Inf'] }}, {{ detailedArmy['T4Cav'] }}, {{ detailedArmy['T4Mage'] }}, {{ detailedArmy['T4Fly'] }},{{ detailedArmy['T4Mm'] }}],
+                    borderWidth: 1,
+                    backgroundColor: '#9A30FF',
+
                 },
                 {
-                    label: 'T5: '+{{ detailedArmy['TotalT5'] }},
-                    data: [{{ detailedArmy['T5Inf'] }}, {{ detailedArmy['T5Cav'] }}, {{ detailedArmy['T5Mage'] }}, {{ detailedArmy['T5Fly'] }},{{ detailedArmy['T5Mm'] }}],                    borderWidth: 5,
+                    label: 'T5: '+'{{ detailedArmy['TotalT5']|number_format() }}',
+                    data: [{{ detailedArmy['T5Inf'] }}, {{ detailedArmy['T5Cav'] }}, {{ detailedArmy['T5Mage'] }}, {{ detailedArmy['T5Fly'] }},{{ detailedArmy['T5Mm'] }}],
+                    borderWidth: 1,
+                    backgroundColor: '#FFD700',
+
+
                 }]};
         const config = {
             type: 'bar',

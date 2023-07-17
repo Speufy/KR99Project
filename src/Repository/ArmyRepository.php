@@ -48,11 +48,11 @@ class ArmyRepository extends ServiceEntityRepository
         $qb->select('COUNT(a.id)')
             ->from('App\Entity\Army', 'a')
             ->where($qb->expr()->orX(
-                $qb->expr()->gte('a.T5Infantry', 0),
-                $qb->expr()->gte('a.T5Cavalry', 0),
-                $qb->expr()->gte('a.T5Fly', 0),
-                $qb->expr()->gte('a.T5Mage', 0),
-                $qb->expr()->gte('a.T5Marksmen', 0)
+                $qb->expr()->gt('a.T5Infantry', 0),
+                $qb->expr()->gt('a.T5Cavalry', 0),
+                $qb->expr()->gt('a.T5Fly', 0),
+                $qb->expr()->gt('a.T5Mage', 0),
+                $qb->expr()->gt('a.T5Marksmen', 0)
             ));
 
         return $qb->getQuery()->getSingleScalarResult();

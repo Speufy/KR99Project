@@ -59,7 +59,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Grade</h6>
+                                        <h6 class="mb-0">Rank</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         {{app.user.grade }}
@@ -71,7 +71,7 @@
                                         <h6 class="mb-0">Power</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        {{ app.user.power }}
+                                        {{ app.user.power|number_format(0, '.', ',') }}
                                     </div>
                                 </div>
                                 <hr>
@@ -80,7 +80,7 @@
                                         <h6 class="mb-0">Merite</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        {{app.user.merit }}
+                                        {{app.user.merit|number_format(0, '.', ',') }}
                                     </div>
 
                                 </div>

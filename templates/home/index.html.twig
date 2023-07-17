@@ -17,7 +17,7 @@
 <body>
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="{{ path('app_home') }}">Knights of the ròund 99</a>
+    <a class="navbar-brand ps-3" href="{{ path('app_home') }}"> S99 Family</a>
     <!-- Sidebar Toggle-->
     <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
     <!-- Navbar Search-->
@@ -62,40 +62,40 @@
                     </a>
             {% endif %}
 
-                    {#                    <div class="sb-sidenav-menu-heading">Member Section</div>#}
-{#                    <a class="nav-link" href="/calendar">#}
-{#                        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>#}
-{#                        Calendar#}
-{#                    </a>#}
-{#                    <a class="nav-link" href="/../event">#}
-{#                        <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>#}
-{#                        Events#}
-{#                    </a>#}
-{#                    <a class="nav-link" href="/../announcement">#}
-{#                        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>#}
-{#                        Announcement#}
-{#                    </a>#}
-{#                    <a class="nav-link" href="{{ path('app_media') }}">#}
-{#                        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>#}
-{#                        Media#}
-{#                    </a>#}
-{#                    <div class="sb-sidenav-menu-heading">Info Section</div>#}
-{#                    <a class="nav-link" href="/../link">#}
-{#                        <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>#}
-{#                        Links#}
-{#                    </a>#}
-{#                    <a class="nav-link" href="/../contact">#}
-{#                        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>#}
-{#                        Contact#}
-{#                    </a>#}
-{#                    <a class="nav-link" href="/../ticket">#}
-{#                        <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>#}
-{#                        Ticket#}
-{#                    </a>#}
-{#                    <a class="nav-link" href="/../info">#}
-{#                        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>#}
-{#                        Info#}
-{#                    </a>#}
+                                        <div class="sb-sidenav-menu-heading">Member Section</div>
+                    <a class="nav-link" href="/calendar">
+                        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                        Calendar
+                    </a>
+                    <a class="nav-link" href="/../event">
+                        <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                        Events
+                    </a>
+                    <a class="nav-link" href="/../announcement">
+                        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                        Announcement
+                    </a>
+                    <a class="nav-link" href="{{ path('app_media') }}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                        Media
+                    </a>
+                    <div class="sb-sidenav-menu-heading">Info Section</div>
+                    <a class="nav-link" href="/../link">
+                        <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                        Links
+                    </a>
+                    <a class="nav-link" href="/../contact">
+                        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                        Contact
+                    </a>
+                    <a class="nav-link" href="/../ticket">
+                        <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                        Ticket
+                    </a>
+                    <a class="nav-link" href="/../info">
+                        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                        Info
+                    </a>
                 </div>
             </div>
             {% if app.user %}
@@ -111,15 +111,42 @@
             <div class="container-fluid px-4">
                 <h1 class="mt-4">
                     {% block PageTitle %}
-                    Welcome to the KR99 Website
+                    Welcome to the S99 Website
                     {% endblock %}
                 </h1>
 
                 <div class="card mb-4">
                     <div class="card-body">
                         {% block body %}
-                            In here you can update some info about you and your army in the profil section.
-                            And you can see some info in the dashboard section.
+                            <h1>Hello Members of Server 99,</h1>
+
+                            <p>We're delighted to have you here, ready to embark on a journey of discovery, learning, and inspiration.
+                                Whether you're a first-time visitor or a returning member of our vibrant community, we extend a warm embrace and
+                                invite you to explore the boundless possibilities that await you. This website will be used to help our leadership
+                                keep track of how many troops people have, the levels of your artifacts, and your heroes as well. You are not required
+                                to keep your profiles up to date, just having the basic information is good for us, but we ask that you try to update
+                                it regularly, as we will use this website to determine who out of our members will be participating in special events
+                                such as the 30v30 Roots of War event.</p>
+
+                            <h2>Directions</h2>
+                            <p>First-time users, please follow these directions to get started, if you cannot find this page again after following the
+                                first step then simply press the "name" in the top left corner.</p>
+
+                            <ol>
+                                <li>Create an Account: Click the icon in the top right corner to create your account.</li>
+                                <li>Setup Profile Information: Fill out the information on your profile. (Alliance, Rank, Troop counts, Artifact levels,
+                                    Hero levels, etc)</li>
+                                <li>Take a look around: Explore the properties of the website, get familiar with it, we will be using it for a multitude
+                                    of things, so figuring out what it's all about will be useful.</li>
+                            </ol>
+
+                            <h2>Contacts</h2>
+                            <ul>
+                                <li>Developer: Speufy</li>
+                            </ul>
+
+                            <p><em>This website is in the early stages, so expect bugs and changes to be made.</em></p>
+
                         {%  endblock %}
                     </div>
                 </div>

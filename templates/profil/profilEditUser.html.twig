@@ -1,5 +1,4 @@
 {% extends '/home/index.html.twig' %}
-
 {% block title %}Hello ProfilEditController!{% endblock %}
 
 {% block body %}
@@ -54,14 +53,14 @@
                                         <h6 class="mb-0">Alliance</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        {{ form_row(form.ally,{'label':false}) }}
+                                        {{ form_row(form.ally) }}
 
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Grade</h6>
+                                        <h6 class="mb-0">Rank</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         {{ form_row(form.grade,{'label':false}) }}

@@ -18,6 +18,7 @@ class DashboardController extends AbstractController
         $armyRepo = $entityManager->getRepository(Army::class);
         $t5Players = $armyRepo->countT5Players();
         $detailedArmy =$this->getArmyAlly($doctrine);
+//        dd($detailedArmy);
         return $this->render('dashboard/dashboard.html.twig', [
             'controller_name' => 'DashboardController',
             'detailedArmy'=>$detailedArmy,
@@ -94,9 +95,10 @@ class DashboardController extends AbstractController
 
                 'TotalT1'=>$total_t1Mm + $total_t1Cav + $total_t1Mage + $total_t1Fly + $total_t1Inf,
                 'TotalT2'=>$total_t2Mm + $total_t2Cav + $total_t2Mage + $total_t2Fly + $total_t2Inf,
-                'TotalT3'=>$total_t1Mm + $total_t3Cav + $total_t3Mage + $total_t3Fly + $total_t3Inf,
-                'TotalT4'=>$total_t1Mm + $total_t4Cav + $total_t4Mage + $total_t4Fly + $total_t4Inf,
-                'TotalT5'=>$total_t1Mm + $total_t5Cav + $total_t5Mage + $total_t5Fly + $total_t5Inf
+                'TotalT3'=>$total_t3Mm + $total_t3Cav + $total_t3Mage + $total_t3Fly + $total_t3Inf,
+                'TotalT4'=>$total_t4Mm + $total_t4Cav + $total_t4Mage + $total_t4Fly + $total_t4Inf,
+                'TotalT5'=>$total_t5Mm + $total_t5Cav + $total_t5Mage + $total_t5Fly + $total_t5Inf
+
             ];
 
         }
@@ -104,3 +106,5 @@ class DashboardController extends AbstractController
 
     }
 }
+
+

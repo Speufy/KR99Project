@@ -1,0 +1,11 @@
+
+{#{% block range_widget %}#}
+{#    <input type="{{ type }}" {{ block('widget_attributes') }} value="{{ value }}" min="{{ min }}" max="{{ max }}" />#}
+{#    <output for="{{ id }}" class="form-range-output">{{ value }}</output>#}
+{#{% endblock %}#}
+
+
+{# templates/form/range_widget.html.twig #}
+
+<input type="{{ type }}" {{ block('widget_attributes') }} value="{{ value }}" min="{{ min }}" max="{{ max }}" />
+<output for="{{ id }}" class="form-range-output">{{ value }}</output>

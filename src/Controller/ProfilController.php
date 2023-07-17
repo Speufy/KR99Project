@@ -77,7 +77,6 @@ class ProfilController extends AbstractController
     public function index(ManagerRegistry $doctrine): Response
     {
         $user = $this->getUser();
-        $userId = $user->getId();
         $army = $user->getArmy();
 
         $armyId = $army->getId();

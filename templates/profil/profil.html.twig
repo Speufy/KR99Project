@@ -28,7 +28,7 @@
                                             <h6 class="mb">TimeZone</h6>
                                         </div>
                                         <div class="col-sm text-secondary">
-                                            {{app.user.timezone }}
+                                            {{app.user.timezone }} UTC
                                         </div>
                                     </div>
 {#                                    <div class="row">#}
@@ -58,7 +58,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Grade</h6>
+                                    <h6 class="mb-0">Rank</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     {{app.user.grade }}
@@ -67,10 +67,11 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
+{#                                    todo changer par un affichage style 123,123,100#}
                                     <h6 class="mb-0">Power</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    {{ app.user.power }}
+                                    {{ app.user.power|number_format(0, '.', ',') }}
                                 </div>
                             </div>
                             <hr>
@@ -79,7 +80,7 @@
                                     <h6 class="mb-0">Merite</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    {{app.user.merit }}
+                                    {{app.user.merit|number_format(0, '.', ',') }}
                                 </div>
 
                             </div>
@@ -111,48 +112,48 @@
                         <tbody>
                         <tr>
                             <td>Infantry</td>
-                            <td>{{army[0].T1Infantry}}</td>
-                            <td>{{army[0].T2Infantry}}</td>
-                            <td>{{army[0].T3Infantry}}</td>
-                            <td>{{army[0].T4Infantry}}</td>
-                            <td>{{army[0].T5Infantry}}</td>
-                            <td>{{ total.infantry }}</td>
+                            <td>{{army[0].T1Infantry|number_format(0, '.', ',')}}</td>
+                            <td>{{army[0].T2Infantry|number_format(0, '.', ',')}}</td>
+                            <td>{{army[0].T3Infantry|number_format(0, '.', ',')}}</td>
+                            <td>{{army[0].T4Infantry|number_format(0, '.', ',')}}</td>
+                            <td>{{army[0].T5Infantry|number_format(0, '.', ',')}}</td>
+                            <td>{{ total.infantry|number_format(0, '.', ',') }}</td>
                         </tr>
                         <tr>
                             <td>Marksmen</td>
-                            <td>{{army[0].T1Marksmen}}</td>
-                            <td>{{army[0].T2Marksmen}}</td>
-                            <td>{{army[0].T3Marksmen}}</td>
-                            <td>{{army[0].T4Marksmen}}</td>
-                            <td>{{army[0].T5Marksmen}}</td>
-                            <td>{{ total.marksmen }}</td>
+                            <td>{{army[0].T1Marksmen|number_format(0, '.', ',')}}</td>
+                            <td>{{army[0].T2Marksmen|number_format(0, '.', ',')}}</td>
+                            <td>{{army[0].T3Marksmen|number_format(0, '.', ',')}}</td>
+                            <td>{{army[0].T4Marksmen|number_format(0, '.', ',')}}</td>
+                            <td>{{army[0].T5Marksmen|number_format(0, '.', ',')}}</td>
+                            <td>{{ total.marksmen|number_format(0, '.', ',') }}</td>
                         </tr>
                         <tr>
                             <td>Cavalry</td>
-                            <td>{{army[0].T1Cavalry}}</td>
-                            <td>{{army[0].T2Cavalry}}</td>
-                            <td>{{army[0].T3Cavalry}}</td>
-                            <td>{{army[0].T4Cavalry}}</td>
-                            <td>{{army[0].T5Cavalry}}</td>
-                            <td>{{ total.cavalry }}</td>
+                            <td>{{army[0].T1Cavalry|number_format(0, '.', ',')}}</td>
+                            <td>{{army[0].T2Cavalry|number_format(0, '.', ',')}}</td>
+                            <td>{{army[0].T3Cavalry|number_format(0, '.', ',')}}</td>
+                            <td>{{army[0].T4Cavalry|number_format(0, '.', ',')}}</td>
+                            <td>{{army[0].T5Cavalry|number_format(0, '.', ',')}}</td>
+                            <td>{{ total.cavalry|number_format(0, '.', ',') }}</td>
                         </tr>
                         <tr>
                             <td>Mages</td>
-                            <td>{{army[0].T1Mage}}</td>
-                            <td>{{army[0].T2Mage}}</td>
-                            <td>{{army[0].T3Mage}}</td>
-                            <td>{{army[0].T4Mage}}</td>
-                            <td>{{army[0].T5Mage}}</td>
-                            <td>{{ total.mage }}</td>
+                            <td>{{army[0].T1Mage|number_format(0, '.', ',')}}</td>
+                            <td>{{army[0].T2Mage|number_format(0, '.', ',')}}</td>
+                            <td>{{army[0].T3Mage|number_format(0, '.', ',')}}</td>
+                            <td>{{army[0].T4Mage|number_format(0, '.', ',')}}</td>
+                            <td>{{army[0].T5Mage|number_format(0, '.', ',')}}</td>
+                            <td>{{ total.mage|number_format(0, '.', ',') }}</td>
                         </tr>
                         <tr>
                             <td>Flying</td>
-                            <td>{{army[0].T1Fly}}</td>
-                            <td>{{army[0].T2Fly}}</td>
-                            <td>{{army[0].T3Fly}}</td>
-                            <td>{{army[0].T4Fly}}</td>
-                            <td>{{army[0].T5Fly}}</td>
-                            <td>{{ total.fly }}</td>
+                            <td>{{army[0].T1Fly|number_format(0, '.', ',')}}</td>
+                            <td>{{army[0].T2Fly|number_format(0, '.', ',')}}</td>
+                            <td>{{army[0].T3Fly|number_format(0, '.', ',')}}</td>
+                            <td>{{army[0].T4Fly|number_format(0, '.', ',')}}</td>
+                            <td>{{army[0].T5Fly|number_format(0, '.', ',')}}</td>
+                            <td>{{ total.fly|number_format(0, '.', ',') }}</td>
                         </tr>
 
                         </tbody>
