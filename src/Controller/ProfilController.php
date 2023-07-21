@@ -3,10 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Army;
+use App\Entity\PlayTimeSchedule;
 use App\Entity\User;
 use App\Form\EditArmyFormType;
 use App\Form\EditUserFormType;
 use App\Form\RegistrationFormType;
+use App\Form\ScheduleFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -70,9 +72,34 @@ class ProfilController extends AbstractController
                 'form'=> $form->createView()
             ]);
         }
-
-
     }
+    #[Route('/profil/editUserPlayTime', name: 'app_profil_edituserPlayTime')]
+    public function editUserPlayTime(ManagerRegistry $doctrine, Request $request): Response
+    {
+        $user = $this->getUser();
+        $schedule = $user->getPlayTimeSchedule();
+        if($schedule){
+            $schedule = $schedule;
+            }else{
+            $schedule = new PlayTimeSchedule();
+        }
+        $schedule->setUser($user);
+        $form = $this->createForm(ScheduleFormType::class,$schedule);
+        $form->handleRequest($request);
+        if($form->isSubmitted()){
+            $entityManager = $doctrine->getManager();
+            $entityManager->persist($schedule);
+            $entityManager->flush();
+            return $this->redirectToRoute('app_profil');
+
+        }else{
+            return $this->render('profil/profilEditPlayTime.html.twig', [
+                'controller_name' => 'ProfilController',
+                'form'=> $form->createView()
+            ]);
+        }
+    }
+
     #[Route('/profil', name: 'app_profil')]
     public function index(ManagerRegistry $doctrine): Response
     {

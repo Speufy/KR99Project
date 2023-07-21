@@ -64,6 +64,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Army $army = null;
 
+    #[ORM\OneToOne(inversedBy: 'user', cascade: ['persist', 'remove'])]
+    private ?PlayTimeSchedule $PlayTimeSchedule = null;
+
 
     public function __construct()
     {
@@ -304,6 +307,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setArmy(?Army $army): static
     {
         $this->army = $army;
+
+        return $this;
+    }
+
+    public function getPlayTimeSchedule(): ?PlayTimeSchedule
+    {
+        return $this->PlayTimeSchedule;
+    }
+
+    public function setPlayTimeSchedule(?PlayTimeSchedule $PlayTimeSchedule): static
+    {
+        $this->PlayTimeSchedule = $PlayTimeSchedule;
 
         return $this;
     }

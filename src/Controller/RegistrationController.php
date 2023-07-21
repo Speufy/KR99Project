@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Army;
 use App\Entity\Player;
+use App\Entity\PlayTimeSchedule;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Security\EmailVerifier;
@@ -36,6 +37,8 @@ class RegistrationController extends AbstractController
         $user = new User();
         $army = new Army();
         $user->setArmy($army);
+        $schedule = new PlayTimeSchedule();
+        $user->setPlayTimeSchedule($schedule);
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 

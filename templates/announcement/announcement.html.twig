@@ -3,41 +3,25 @@
 {% block title %}Announcements{% endblock %}
 
 {% block body %}
-    <div class="card">
-        <h5 class="card-header">KC/KR matters</h5>
-        <div class="card-body">
-            <h5 class="card-title">Welcome to the KC / KR Alliance </h5>
-            <p class="card-text"><p>We hope to grow together with our other family alliance. If you are new, here are some of the stuff that we have implemented:</p>
-            <ol>
-                <li>Acolytes: 0015 / 1215 UTC (Exact timings to be marked)</li>
-                <li>Raid and Event Timings: 1500 UTC (Exact timings to be marked)</li>
-                <li>Maximum participation for raids and events, donations, helps, and builds.</li>
-                <li>When we ask for a fast build, send full troops. When we ask for a slow build, just send 1 troop. This is to allow maximum build time for points.</li>
-                <li>If you are starting a long build, request for R4 Scholar Buff from the R5. We will rotate this to help everyone.</li>
-            </ol>
-            <p>KC99 is our main alliance, with a power cut-off that will be reviewed constantly. There will also be case-by-case recommendations by R5/R4s.</p>
-            <p>Lastly, the KC / KR alliance is managed by a council. Out of the council, the following personnel are in charge of the following:</p>
-            <ul>
-                <li>Leader: Seraphblade / Yang</li>
-                <li>Co-leads: Dracaryyys / Serpa</li>
-                <li>Diplomacy: Seraphblade</li>
-                <li>Raids: A90 / Seraphblade</li>
-                <li>Recruitment: Dracaryyys / Serpa</li>
-                <li>Tower Lead: Capt Savage</li>
-                <li>War Leads: Seraphblade / Bonsingu / KingPride / AllMight</li>
-            </ul>
-            <p>Respectfully,</p>
-            <p>Seraphblade</p></p>
+    {% if is_granted("ROLE_ADMIN") %}
+    <a class="btn btn-info ml-auto offset-10 mb-2" href="{{ path('app_announcement_add') }}">Add announce</a>
+    {% endif %}
+    {% for annonce in annonces %}
+        <div class="card mt-1">
+            <h5 class="card-header d-flex">{{ annonce.title |raw  }}
+                <form action="{{ path('app_announcement_delete', {id: annonce.id}) }}" method="post" class="ml-auto offset-10">
+                    {% if is_granted("ROLE_ADMIN") %}
+
+                    <button type="submit" class="btn btn-info ml-auto">Delete</button>
+                    {% endif %}
+
+                </form>
+            </h5>
+            <div class="card-body">
+                <p class="card-text"><p>
+
+                {{ annonce.message |raw }}
+            </div>
         </div>
-    </div>
-{#    <div>#}
-{#        <p></p>#}
-{#    </div>#}
-{#    <div class="card">#}
-{#        <h5 class="card-header">Announcement 2</h5>#}
-{#        <div class="card-body">#}
-{#            <h5 class="card-title">Announcements title</h5>#}
-{#            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>#}
-{#        </div>#}
-{#    </div>#}
+    {% endfor %}
 {% endblock %}

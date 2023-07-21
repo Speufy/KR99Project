@@ -1,0 +1,19 @@
+{% extends '/home/index.html.twig' %}
+
+{% block title %}Add Annonce{% endblock %}
+
+{% block body %}
+    {% if is_granted("ROLE_ADMIN") %}
+
+    {{ form_start(form) }}
+    <div class="card mt-1">
+        <h5 class="card-header">{{ form_row(form.title) }}</h5>
+        <div class="card-body">
+            <p class="card-text"><p>
+                {{ form_row(form.message) }}
+        </div>
+        {{ form_row(form.add) }}
+    </div>
+    {%  endif %}
+
+{% endblock %}

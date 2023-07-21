@@ -3,6 +3,14 @@
 {% block title %}Hello DashboardController!{% endblock %}
 
 {% block body %}
+<div class="container-fluid px-4">
+    <div>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Total Army</li>
+            <li class="breadcrumb-item"><a href="{{ path('app_dashboardChart') }}">Players online over time</a></li>
+
+        </ol>
+    </div>
 
     <div>
         <H1>We've got {{ T5Players }} T5 players</H1>
@@ -10,6 +18,8 @@
     <div>
         <canvas id="army"></canvas>
     </div>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -80,4 +90,5 @@
 
         new Chart(graph,config);
     </script>
+
 {% endblock %}

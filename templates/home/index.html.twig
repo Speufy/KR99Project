@@ -14,6 +14,11 @@
     <link href="{{ asset('assets/css/styles.css') }}" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
 <body>
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <!-- Navbar Brand-->
@@ -104,7 +109,10 @@
                 {{ app.user.email }}
             </div>
             {% endif %}
+                    </div>
+            </div>
         </nav>
+
     </div>
     <div id="layoutSidenav_content">
         <main>
@@ -151,6 +159,7 @@
                     </div>
                 </div>
                    </div>
+
         </main>
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid px-4">

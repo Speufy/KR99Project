@@ -1,0 +1,100 @@
+{% extends 'home/index.html.twig' %}
+
+{% block title %}Hello DashboardController!{% endblock %}
+{# {% block stylesheets %}#}
+{#     {{ encore_entry_link_tags('app') }}#}
+{# {% endblock %}#}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        {% endblock %}
+{% block body %}
+
+    <div class="container-fluid px-4">
+        <div>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">Players online over time</li>
+
+                <li class="breadcrumb-item"><a href="{{ path('app_dashboard') }}">Dashboard</a></li>
+            </ol>
+       </div>
+
+        <canvas id="schedule"></canvas>
+    </div>
+
+
+
+    <script>
+        const graph = document.getElementById('schedule');
+        const data =  {
+            labels: ['0h','1','2','3','4','5','6','7','8','9','10','11','12h','13','14','15','16','17','18','19','20','21','22','23','24h'],
+            datasets: [
+                {
+                    label: 'Average Player by hour : ' ,
+                    data:[
+                        {{ nbreJoueursParHeures[24] }},
+                        {{ nbreJoueursParHeures[1] }},
+                        {{ nbreJoueursParHeures[2] }},
+                        {{ nbreJoueursParHeures[3] }},
+                        {{ nbreJoueursParHeures[4] }},
+                        {{ nbreJoueursParHeures[5] }},
+                        {{ nbreJoueursParHeures[6] }},
+                        {{ nbreJoueursParHeures[7] }},
+                        {{ nbreJoueursParHeures[8] }},
+                        {{ nbreJoueursParHeures[9] }},
+                        {{ nbreJoueursParHeures[10] }},
+                        {{ nbreJoueursParHeures[11] }},
+                        {{ nbreJoueursParHeures[12] }},
+                        {{ nbreJoueursParHeures[13] }},
+                        {{ nbreJoueursParHeures[14] }},
+                        {{ nbreJoueursParHeures[15] }},
+                        {{ nbreJoueursParHeures[16] }},
+                        {{ nbreJoueursParHeures[17] }},
+                        {{ nbreJoueursParHeures[18] }},
+                        {{ nbreJoueursParHeures[19] }},
+                        {{ nbreJoueursParHeures[20] }},
+                        {{ nbreJoueursParHeures[21] }},
+                        {{ nbreJoueursParHeures[22] }},
+                        {{ nbreJoueursParHeures[23] }},
+                        {{ nbreJoueursParHeures[24] }}
+                            ],
+
+                    borderWidth:5,
+                    fill:false,
+                    backgroundColor: '#297779',
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                },
+
+                ]};
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Most Active period of the day'
+                    },
+                },
+                responsive: true,
+                interaction: {
+                    intersect: false,
+                },
+                scales: {
+                    x: {
+                        stacked: true,
+                    },
+                    y: {
+                        stacked: true
+                    }
+                }
+            }
+        };
+
+        new Chart(graph,config);
+    </script>
+
+
+{% endblock %}

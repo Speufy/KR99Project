@@ -3,26 +3,29 @@
 namespace App\Controller;
 
 use App\Entity\Army;
-use App\Repository\ArmyRepository;
+use App\Entity\PlayTimeSchedule;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
+use Symfony\UX\Chartjs\Model\Chart;
 
 class DashboardController extends AbstractController
 {
     #[Route('/dashboard', name: 'app_dashboard')]
-    public function index(ManagerRegistry $doctrine): Response
+    public function index(ManagerRegistry $doctrine, ChartBuilderInterface $chartBuilder): Response
     {
         $entityManager = $doctrine->getManager();
         $armyRepo = $entityManager->getRepository(Army::class);
         $t5Players = $armyRepo->countT5Players();
+        $nbreJoueursParHeures = $this->getAllianceActivity($doctrine);
         $detailedArmy =$this->getArmyAlly($doctrine);
-//        dd($detailedArmy);
         return $this->render('dashboard/dashboard.html.twig', [
             'controller_name' => 'DashboardController',
             'detailedArmy'=>$detailedArmy,
             'T5Players'=>$t5Players,
+            'nbreJoueursParHeures'=>$nbreJoueursParHeures
         ]);
     }
 
@@ -104,6 +107,53 @@ class DashboardController extends AbstractController
         }
         return $detailArmy ;
 
+    }
+    #[Route('/dashboard/chart', name: 'app_dashboardChart')]
+    public function indexchart(ManagerRegistry $doctrine): Response
+    {
+
+        $nbreJoueursParHeures = $this->getAllianceActivity($doctrine);
+        return $this->render('dashboard/dashboardChart.html.twig', [
+            'controller_name' => 'DashboardChartController',
+            'nbreJoueursParHeures'=>$nbreJoueursParHeures
+        ]);
+    }
+
+    public function getAllianceActivity(ManagerRegistry $doctrine)
+    {
+        $entityManager = $doctrine->getManager();
+        $schedulRepo = $entityManager->getRepository(PlayTimeSchedule::class);
+        $schedules = $schedulRepo->findAll();
+        $nbreJoueursParHeures = array_fill(1, 24, 0);
+
+
+        foreach ($schedules as $schedule) {
+                $nbreJoueursParHeures[1] += (int)$schedule->isHour1();
+                $nbreJoueursParHeures[2] += (int)$schedule->isHour2();
+                $nbreJoueursParHeures[3] += (int)$schedule->isHour3();
+                $nbreJoueursParHeures[4] += (int)$schedule->isHour4();
+                $nbreJoueursParHeures[5] += (int)$schedule->isHour5();
+                $nbreJoueursParHeures[6] += (int)$schedule->isHour6();
+                $nbreJoueursParHeures[7] += (int)$schedule->isHour7();
+                $nbreJoueursParHeures[8] += (int)$schedule->isHour8();
+                $nbreJoueursParHeures[9] += (int)$schedule->isHour9();
+                $nbreJoueursParHeures[10] += (int)$schedule->isHour10();
+                $nbreJoueursParHeures[11] += (int)$schedule->isHour11();
+                $nbreJoueursParHeures[12] += (int)$schedule->isHour12();
+                $nbreJoueursParHeures[13] += (int)$schedule->isHour13();
+                $nbreJoueursParHeures[14] += (int)$schedule->isHour14();
+                $nbreJoueursParHeures[15] += (int)$schedule->isHour15();
+                $nbreJoueursParHeures[16] += (int)$schedule->isHour16();
+                $nbreJoueursParHeures[17] += (int)$schedule->isHour17();
+                $nbreJoueursParHeures[18] += (int)$schedule->isHour18();
+                $nbreJoueursParHeures[19] += (int)$schedule->isHour19();
+                $nbreJoueursParHeures[20] += (int)$schedule->isHour20();
+                $nbreJoueursParHeures[21] += (int)$schedule->isHour21();
+                $nbreJoueursParHeures[22] += (int)$schedule->isHour22();
+                $nbreJoueursParHeures[23] += (int)$schedule->isHour23();
+                $nbreJoueursParHeures[24] += (int)$schedule->isHour24();
+        }
+            return $nbreJoueursParHeures;
     }
 }
 
